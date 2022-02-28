@@ -19,13 +19,14 @@ namespace DemoProject.Controllers
         /// </summary>
         public IActionResult Configurations()
         {
-            var user = HttpContext.Session.GetString("sessionName");
-            if (user != null)
-            {
-                ViewData["Username"] = user;
-                return View();
-            }
-            return RedirectToAction("Login", "Account");
+            //var user = HttpContext.Session.GetString("sessionName");
+            //if (user != null)
+            //{
+            //    ViewData["Username"] = user;
+            //    return View();
+            //}
+            //return RedirectToAction("Login", "Account");
+            return View();
         }
 
         /// <summary>

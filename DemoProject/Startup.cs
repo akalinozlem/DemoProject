@@ -28,10 +28,10 @@ namespace DemoProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromMinutes(20);
-            });
+            //services.AddSession(options =>
+            //{
+            //    options.IdleTimeout = TimeSpan.FromMinutes(20);
+            //});
 
             //For MySQL AdminUsers table
             services.AddDbContext<AdminUserContext>(options =>
