@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Configuration";
+    ViewData["IndActive"] = "active bg-gradient-primary";
+}
+
+<div class="row">
+    <!-- Alert -->
+    <!-- Error Alert -->
+      <div id="errorDiv" name="errorDiv" class="alert alert-danger alert-dismissible text-white" style="display: none;" role="alert">
+         <span id="errorText" class="text-sm"></span>
+            <button id="closeAlertErrorBtn" type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+         </button>
+      </div>
+    <!-- Success Alert -->
+      <div id="successDiv" name="successDiv" class="alert alert-success alert-dismissible text-white" style="display: none;" role="alert">
+         <span id="successText" class="text-sm"></span>
+            <button id="closeAlertSuccessBtn" type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+         </button>
+      </div>
+    <!-- Body -->
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Buildings</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table id="tblConfiguration" class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-capitalize font-weight-bolder opacity-7">Building Type</th>
+                      <th class="text-center text-uppercase text-secondary text-capitalize font-weight-bolder opacity-7 ps-2">Building Cost</th>
+                      <th class="text-center text-uppercase text-secondary text-capitalize font-weight-bolder opacity-7">Construction Time</th>
+                      <th class="text-secondary opacity-7"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <button id="addBtn" name="addBtn" class="btn bg-gradient-success">Add Building</button>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+<!-- Modal Add or Edit -->
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="saveModalLabel">Configurations</h4>
+            </div>
+            <div class="modal-body">
+                <div class="my-4">
+                       <div class="card-body">
+                          <div class="input-group" style="display:none;" >
+                                  <label for="txtConfId" class="form-label"></label>
+                                  <input name="txtConfId" id="txtConfId" class="form-control" required/>
+                          </div>
+                          <div class="input-group input-group-outline mb-3">
+                                  <select name="cmbBuildingType" id="cmbBuildingType" class="form-control">
+                                  </select>
+                          </div>
+                           <div class="input-group input-group-outline mb-3">
+                                  <input name="txtBuildingCost" id="txtBuildingCost" class="form-control" placeholder="Building Cost" required/>
+                          </div>
+                          <div class="input-group input-group-outline mb-3">
+                                  <input name="txtConstructionTime" id="txtConstructionTime" class="form-control" placeholder="Construction Time" required/>
+                          </div>
+                      </div>
+                </div>
+            </div>
+            <div class="modal-footer align-content-center">
+                <button id="saveBtn" name="saveBtn" class="btn bg-gradient-success" onclick="Save()" data-dismiss="modal" aria-hidden="true">Save</button>
+                <button type="button" id="closeBtn" name="closeBtn" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      LoadConfigurations();
+    });
+</script>
