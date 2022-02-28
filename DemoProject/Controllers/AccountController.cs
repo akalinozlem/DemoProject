@@ -41,10 +41,10 @@ namespace DemoProject.Controllers
                     TempData["Notification"] = "Your username or password is wrong!";
                     return View();
                 }
-                //var identity = new System.Security.Principal.GenericIdentity(user.UserName);
-                //var principal = new GenericPrincipal(identity, new string[0]);
-                //HttpContext.Session.SetString("sessionName", user.UserName);
-                //Thread.CurrentPrincipal = principal;
+                var identity = new System.Security.Principal.GenericIdentity(user.UserName);
+                var principal = new GenericPrincipal(identity, new string[0]);
+                HttpContext.Session.SetString("sessionName", user.UserName);
+                Thread.CurrentPrincipal = principal;
                 return RedirectToAction("Configurations", "Home");
             }
             return View();
@@ -99,11 +99,11 @@ namespace DemoProject.Controllers
         /// <summary>
         /// Clear session data when sign out.
         /// </summary>
-        //public IActionResult SessionOut()
-        //{
-        //    HttpContext.Session.Clear();
-        //    return View("Login");
-        //}
+        public IActionResult SessionOut()
+        {
+            HttpContext.Session.Clear();
+            return View("Login");
+        }
 
     }
 }
