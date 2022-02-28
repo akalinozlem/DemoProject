@@ -32,6 +32,7 @@ namespace DemoProject
             //{
             //    options.IdleTimeout = TimeSpan.FromMinutes(20);
             //});
+            services.AddSession();
 
             //For MySQL AdminUsers table
             services.AddDbContext<AdminUserContext>(options =>
