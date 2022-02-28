@@ -99,11 +99,11 @@ namespace DemoProject.Controllers
         /// <summary>
         /// Clear session data when sign out.
         /// </summary>
-        public IActionResult SessionOut()
-        {
-            HttpContext.Session.Clear();
-            return View("Login");
-        }
+        //public IActionResult SessionOut()
+        //{
+        //    HttpContext.Session.Clear();
+        //    return View("Login");
+        //}
 
     }
 }
